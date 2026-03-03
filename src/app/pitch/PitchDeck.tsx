@@ -7,7 +7,7 @@ import type { PitchStats } from "@/lib/pitch-stats";
 const ACCENT = "#c8e64a";
 const CREAM = "#e8dcc8";
 const MUTED = "#8c8c9c";
-const TOTAL_SLIDES = 12;
+const TOTAL_SLIDES = 13;
 
 const SLIDE_LABELS = [
   "Cover",
@@ -22,6 +22,7 @@ const SLIDE_LABELS = [
   "Founder",
   "Vision",
   "Roadmap",
+  "Contact",
 ];
 
 /* ─────────────── main component ─────────────── */
@@ -102,6 +103,7 @@ export default function PitchDeck({ stats }: { stats: PitchStats }) {
     <SlideFounder key="founder" />,
     <SlideVision key="vision" />,
     <SlideRoadmap key="roadmap" />,
+    <SlideContact key="contact" />,
   ];
 
   return (
@@ -593,6 +595,36 @@ function SlideRoadmap() {
         <RoadmapItem quarter="Q4 2026" status="planned" title="Git City Wrapped" desc="Year-in-review animations. Viral shareable cards." />
         <RoadmapItem quarter="2027" status="planned" title="100K+ Devs" desc="Enterprise, API, analytics dashboard, global events." />
       </div>
+    </div>
+  );
+}
+
+function SlideContact() {
+  return (
+    <div className="flex w-full max-w-4xl flex-col items-center justify-center gap-10 text-center">
+      <SlideHeader n="13" title="Let's Talk" />
+      <p className="max-w-xl text-base leading-relaxed text-muted normal-case sm:text-lg">
+        Interested in Git City? Have questions, ideas, or want to collaborate?
+      </p>
+      <div className="flex flex-col gap-5">
+        <a
+          href="https://x.com/srizzon"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="border-[3px] border-border bg-bg-raised px-8 py-4 text-base text-cream transition-colors hover:border-border-light sm:text-lg"
+        >
+          @srizzon on X
+        </a>
+        <a
+          href="mailto:samuelrizzondev@gmail.com"
+          className="border-[3px] border-border bg-bg-raised px-8 py-4 text-base text-cream transition-colors hover:border-border-light sm:text-lg"
+        >
+          samuelrizzondev@gmail.com
+        </a>
+      </div>
+      <p className="mt-4 text-sm text-muted normal-case sm:text-base">
+        thegitcity.com
+      </p>
     </div>
   );
 }
